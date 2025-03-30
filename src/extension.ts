@@ -67,12 +67,12 @@ async function runStataCode(code: string) {
         const tempFilePath = config.get<string>('tempFilePath', '__do_tempfile__.do');
         const runStataPath = config.get<string>('runStataPath');
 
-        if (!stataPath) {
+        if (!stataPath && process.platform !== 'darwin') {
             vscode.window.showErrorMessage('Please configure stata-runner.stataPath in settings');
             return;
         }
-        if (!runStataPath) {
-            vscode.window.showErrorMessage('Please configure stata-runner.runStataPath in settings');
+        if (!runStataPath && process.platform === 'win32') {
+            vscode.window.showErrorMessage('Please configure stata-runner.runStataPath in settings for Windows platform');
             return;
         }
 
@@ -95,7 +95,7 @@ async function runStataCode(code: string) {
             // Windows平台使用runStata.exe
             command = `"${runStataPath}" "${stataPath}" "${stataWindowTitle}" "${stataCommandHotkey}" "${tempFileFullPath}"`;
         } else if (process.platform === 'darwin') {
-            // macOS平台使用优化后的AppleScript命令
+            // macOS平台直接使用AppleScript
             command = `osascript -e 'tell application "Stata" to DoCommand "do ${tempFileFullPath}"'`;
         } else {
             vscode.window.showErrorMessage('Unsupported platform');

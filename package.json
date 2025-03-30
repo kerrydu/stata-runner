@@ -2,7 +2,7 @@
   "name": "stata-runner",
   "displayName": "Stata Runner",
   "description": "Run Stata code from VS Code using runStata.exe",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publisher": "kerrydu",
   "icon": "images/icon.png",
   "engines": {
@@ -74,17 +74,9 @@
         },
         "stata-runner.runStataPath": {
           "type": "string",
-          "description": "Full path to runStata.exe (must be in same directory as package.json). Example: C:\\Users\\kerry\\Downloads\\runStata\\runStata.exe"
-        },
-        "stata-runner.macStataPath": {
-          "type": "string",
-          "description": "Full path to Stata executable on macOS. Example: /Applications/Stata/StataMP.app/Contents/MacOS/StataMP"
-        },
-        "stata-runner.macStataAppName": {
-          "type": "string",
-          "description": "Name of Stata application on macOS. Default: 'Stata'",
-          "default": "Stata"
+          "description": "Full path to runStata.exe (must be in same directory as package.json). Example: C:\\Users\\kerry\\Downloads\\runStata\\runStata.exe [Windows only]"
         }
+
       }
     }
   },

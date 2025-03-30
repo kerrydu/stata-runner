@@ -70,12 +70,12 @@ function runStataCode(code) {
             const stataCommandHotkey = config.get('stataCommandHotkey', '^1');
             const tempFilePath = config.get('tempFilePath', '__do_tempfile__.do');
             const runStataPath = config.get('runStataPath');
-            if (!stataPath) {
+            if (!stataPath && process.platform !== 'darwin') {
                 vscode.window.showErrorMessage('Please configure stata-runner.stataPath in settings');
                 return;
             }
-            if (!runStataPath) {
-                vscode.window.showErrorMessage('Please configure stata-runner.runStataPath in settings');
+            if (!runStataPath && process.platform === 'win32') {
+                vscode.window.showErrorMessage('Please configure stata-runner.runStataPath in settings for Windows platform');
                 return;
             }
             // 创建临时文件目录（如果不存在）
@@ -95,7 +95,7 @@ function runStataCode(code) {
                 command = `"${runStataPath}" "${stataPath}" "${stataWindowTitle}" "${stataCommandHotkey}" "${tempFileFullPath}"`;
             }
             else if (process.platform === 'darwin') {
-                // macOS平台使用优化后的AppleScript命令
+                // macOS平台直接使用AppleScript
                 command = `osascript -e 'tell application "Stata" to DoCommand "do ${tempFileFullPath}"'`;
             }
             else {
