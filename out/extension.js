@@ -96,7 +96,7 @@ function runStataCode(code) {
             }
             else if (process.platform === 'darwin') {
                 // macOS平台直接使用AppleScript
-                command = `osascript -e 'tell application "Stata" to DoCommand "do ${tempFileFullPath}"'`;
+                command = `osascript -e 'tell application "Stata" to activate' -e 'tell application "Stata" to DoCommandAsync "do ${tempFileFullPath}"'`;
             }
             else {
                 vscode.window.showErrorMessage('Unsupported platform');
