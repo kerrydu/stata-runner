@@ -12,7 +12,7 @@
 ## Required Configuration
 1. **Stata Executable Path**:
    - Open Settings (Ctrl+,)
-   - Search for "stataRunner.stataPath"
+   - Search for "stata-runner.stataPath"
    - Enter full Stata path, e.g.: `C:\Program Files\Stata18\StataMP-64.exe`
    - Note: Path should not contain Chinese characters or special symbols
 
@@ -57,7 +57,7 @@
 # 必要配置
 1. **Stata可执行路径**：
    - 打开设置 (Ctrl+,)
-   - 搜索 "stataRunner.stataPath"
+   - 搜索 "stata-runner.stataPath"
    - 填写完整Stata路径，例如：`C:\Program Files\Stata18\StataMP-64.exe`
    - 注意：路径不要包含中文或特殊字符
 

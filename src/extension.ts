@@ -60,7 +60,7 @@ export function activate(context: vscode.ExtensionContext) {
 async function runStataCode(code: string) {
     try {
         // 获取配置
-        const config = vscode.workspace.getConfiguration('stataRunner');
+        const config = vscode.workspace.getConfiguration('stata-runner');
         const stataPath = config.get<string>('stataPath');
         const stataWindowTitle = config.get<string>('stataWindowTitle', 'Stata/MP 18.0');
         const stataCommandHotkey = config.get<string>('stataCommandHotkey', '^1');
@@ -68,11 +68,11 @@ async function runStataCode(code: string) {
         const runStataPath = config.get<string>('runStataPath');
 
         if (!stataPath) {
-            vscode.window.showErrorMessage('请在设置中配置Stata路径');
+            vscode.window.showErrorMessage('Please configure stata-runner.stataPath in settings');
             return;
         }
         if (!runStataPath) {
-            vscode.window.showErrorMessage('请在设置中配置runStata.exe路径');
+            vscode.window.showErrorMessage('Please configure stata-runner.runStataPath in settings');
             return;
         }
 

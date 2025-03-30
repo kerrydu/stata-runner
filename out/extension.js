@@ -64,18 +64,18 @@ function runStataCode(code) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             // 获取配置
-            const config = vscode.workspace.getConfiguration('stataRunner');
+            const config = vscode.workspace.getConfiguration('stata-runner');
             const stataPath = config.get('stataPath');
             const stataWindowTitle = config.get('stataWindowTitle', 'Stata/MP 18.0');
             const stataCommandHotkey = config.get('stataCommandHotkey', '^1');
             const tempFilePath = config.get('tempFilePath', '__do_tempfile__.do');
             const runStataPath = config.get('runStataPath');
             if (!stataPath) {
-                vscode.window.showErrorMessage('请在设置中配置Stata路径');
+                vscode.window.showErrorMessage('Please configure stata-runner.stataPath in settings');
                 return;
             }
             if (!runStataPath) {
-                vscode.window.showErrorMessage('请在设置中配置runStata.exe路径');
+                vscode.window.showErrorMessage('Please configure stata-runner.runStataPath in settings');
                 return;
             }
             // 创建临时文件目录（如果不存在）
