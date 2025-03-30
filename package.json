@@ -41,12 +41,12 @@
     "keybindings": [
       {
         "command": "stata-runner.runSelection",
-        "key": "ctrl+alt+o",
+        "key": "ctrl+enter",
         "when": "editorTextFocus && editorLangId == 'ado' || editorTextFocus && editorLangId == 'mata' || editorTextFocus && editorLangId == 'stata'"
       },
       {
         "command": "stata-runner.runToCursor",
-        "key": "ctrl+alt+p",
+        "key": "ctrl+alt+enter",
         "when": "editorTextFocus && editorLangId == 'ado' || editorTextFocus && editorLangId == 'mata' || editorTextFocus && editorLangId == 'stata'"
       }
     ],
@@ -55,16 +55,16 @@
       "properties": {
         "stata-runner.stataPath": {
           "type": "string",
-          "description": "Full path to the Stata executable (including filename). Example: C:\\Program Files\\Stata18\\StataMP-64.exe. Path must not contain Chinese characters or special characters."
+          "description": "Full path to the Stata executable (including filename). Example: C:\\Program Files\\Stata18\\StataMP-64.exe. Path must not contain Chinese characters or special characters. [Windows only]"
         },
         "stata-runner.stataWindowTitle": {
           "type": "string",
-          "description": "Stata window title (must exactly match actual window title). Default matches Stata/MP 18.0. Modify for other versions. Example: 'Stata/SE 17.0'",
+          "description": "Stata window title (must exactly match actual window title). Default matches Stata/MP 18.0. Modify for other versions. Example: 'Stata/SE 17.0' [Windows only]",
           "default": "Stata/MP 18.0"
         },
         "stata-runner.stataCommandHotkey": {
           "type": "string",
-          "description": "Hotkey for activating Stata command window (AutoHotkey format). Default ^1 for Ctrl+1. Format example: ^!c for Ctrl+Alt+C",
+          "description": "Hotkey for activating Stata command window (AutoHotkey format). Default ^1 for Ctrl+1. Format example: ^!c for Ctrl+Alt+C [Windows only]",
           "default": "^1"
         },
         "stata-runner.tempFilePath": {
