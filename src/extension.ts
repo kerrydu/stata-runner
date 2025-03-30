@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
         
         // 检查文件扩展名是否为.do或.mata
         const fileName = editor.document.fileName;
-        if (!fileName.endsWith('.do') && !fileName.endsWith('.mata')) {
+        if (!fileName.endsWith('.ado') && !fileName.endsWith('.do') && !fileName.endsWith('.mata')) {
             vscode.window.showErrorMessage('This command is only available for .do and .mata files');
             return;
         }
