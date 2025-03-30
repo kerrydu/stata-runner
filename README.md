@@ -1,8 +1,9 @@
 # Stata Runner Extension Documentation (English)
 
 ## Installation Guide
-1. Search for "Stata Runner" in VS Code Extensions marketplace
-2. Click Install button
+1. Download the extension from GitHub repository:
+   - Repository URL: https://github.com/kerrydu/stata-runner
+2. Install the extension manually in VS Code
 3. Perform necessary configurations after installation
 
 ## Download runStata.exe
@@ -15,14 +16,17 @@
    - Search for "stata-runner.stataPath"
    - Enter full Stata path, e.g.: `C:\Program Files\Stata18\StataMP-64.exe`
    - Note: Path should not contain Chinese characters or special symbols
+   - **macOS Note**: This setting is not required on macOS
 
 2. **runStata.exe Path**:
    - Ensure `runStata.exe` is in same directory as extension installation
    - Default path: `${workspaceFolder}\runStata.exe`
+   - **macOS Note**: This setting is not required on macOS
 
 3. **Temporary File Settings**:
    - Default uses `__do_tempfile__.do`
    - Important: This file will be overwritten
+ 
 
 ## Keyboard Shortcuts
 - `Ctrl+Alt+o` Run selected code/current line
@@ -44,8 +48,9 @@
 # Stata Runner 扩展说明
 
 ## 安装指南
-1. 在VS Code扩展商店中搜索"Stata Runner"
-2. 点击安装按钮
+1. 从GitHub仓库下载扩展：
+   - 仓库地址：https://github.com/kerrydu/stata-runner
+2. 在VS Code中手动安装扩展
 3. 安装完成后需进行必要配置
 
 ## 下载安装
@@ -60,10 +65,12 @@
    - 搜索 "stata-runner.stataPath"
    - 填写完整Stata路径，例如：`C:\Program Files\Stata18\StataMP-64.exe`
    - 注意：路径不要包含中文或特殊字符
+   - **macOS说明**：macOS系统无需此设置
 
 2. **runStata.exe路径**：
    - 确保`runStata.exe`文件与扩展安装目录同级
    - 默认路径：`${workspaceFolder}\runStata.exe`
+   - **macOS说明**：macOS系统无需此设置
 
 3. **临时文件设置**：
    - 默认使用`__do_tempfile__.do`

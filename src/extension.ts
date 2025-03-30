@@ -89,8 +89,19 @@ async function runStataCode(code: string) {
         // 写入临时文件
         fs.writeFileSync(tempFileFullPath, code, 'utf8');
 
-        // 调用runStata.exe
-        const command = `"${runStataPath}" "${stataPath}" "${stataWindowTitle}" "${stataCommandHotkey}" "${tempFileFullPath}"`;
+        // 根据平台执行不同的命令
+        let command;
+        if (process.platform === 'win32') {
+            // Windows平台使用runStata.exe
+            command = `"${runStataPath}" "${stataPath}" "${stataWindowTitle}" "${stataCommandHotkey}" "${tempFileFullPath}"`;
+        } else if (process.platform === 'darwin') {
+            // macOS平台使用优化后的AppleScript命令
+            command = `osascript -e 'tell application "Stata" to DoCommand "do ${tempFileFullPath}"'`;
+        } else {
+            vscode.window.showErrorMessage('Unsupported platform');
+            return;
+        }
+
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 vscode.window.showErrorMessage(`Failed to run Stata: ${stderr || error.message}`);
