@@ -1,0 +1,96 @@
+{
+  "name": "stata-runner",
+  "displayName": "Stata Runner",
+  "description": "Run Stata code from VS Code using runStata.exe",
+  "version": "0.1.0",
+  "publisher": "Kerry Du",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:stata-runner.runSelection",
+    "onCommand:stata-runner.runToCursor",
+    "onLanguage:stata",
+    "onLanguage:mata",
+    "onLanguage:ado"
+  ],
+  "main": "./out/extension.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kerrydu/stata-runner"
+  },
+  "homepage": "https://github.com/kerrydu/stata-runner/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/kerrydu/stata-runner/issues"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "stata-runner.runSelection",
+        "title": "Stata: Run Selection"
+      },
+      {
+        "command": "stata-runner.runToCursor",
+        "title": "Stata: Run To Cursor"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "stata-runner.runSelection",
+        "key": "ctrl+alt+o",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "stata-runner.runToCursor",
+        "key": "ctrl+alt+p",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Stata Runner",
+      "properties": {
+        "stataRunner.stataPath": {
+          "type": "string",
+          "description": "Full path to the Stata executable (including filename). Example: C:\\Program Files\\Stata18\\StataMP-64.exe. Path must not contain Chinese characters or special characters."
+        },
+        "stataRunner.stataWindowTitle": {
+          "type": "string",
+          "description": "Stata window title (must exactly match actual window title). Default matches Stata/MP 18.0. Modify for other versions. Example: 'Stata/SE 17.0'",
+          "default": "Stata/MP 18.0"
+        },
+        "stataRunner.stataCommandHotkey": {
+          "type": "string",
+          "description": "Hotkey for activating Stata command window (AutoHotkey format). Default ^1 for Ctrl+1. Format example: ^!c for Ctrl+Alt+C",
+          "default": "^1"
+        },
+        "stataRunner.tempFilePath": {
+          "type": "string",
+          "description": "Temporary do file save path (relative to workspace). Default: __do_tempfile__.do. WARNING: Existing files with same name will be overwritten. Recommended to keep default.",
+          "default": "__do_tempfile__.do"
+        },
+        "stataRunner.runStataPath": {
+          "type": "string",
+          "description": "Full path to runStata.exe (must be in same directory as package.json). Example: C:\\Users\\kerry\\Downloads\\runStata\\runStata.exe"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "typescript": "^4.9.5"
+  }
+}
