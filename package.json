@@ -14,6 +14,7 @@
   "activationEvents": [
     "onCommand:stata-runner.runSelection",
     "onCommand:stata-runner.runToCursor",
+    "onCommand:stata-runner.runFromCursorToEnd",
     "onLanguage:stata",
     "onLanguage:mata",
     "onLanguage:ado"
