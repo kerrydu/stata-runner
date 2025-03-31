@@ -64,7 +64,11 @@ async function runStataCode(code: string) {
         const stataPath = config.get<string>('stataPath');
         const stataWindowTitle = config.get<string>('stataWindowTitle', 'Stata/MP 18.0');
         const stataCommandHotkey = config.get<string>('stataCommandHotkey', '^1');
-        const tempFilePath = config.get<string>('tempFilePath', '__do_tempfile__.do');
+        let tempFilePath = config.get<string>('tempFilePath', '__do_tempfile__.do');
+        // 确保临时文件路径以.do结尾
+        if (!tempFilePath.endsWith('.do')) {
+            tempFilePath = tempFilePath + '.do';
+        }
         const runStataPath = config.get<string>('runStataPath');
 
         if (!stataPath && process.platform !== 'darwin') {

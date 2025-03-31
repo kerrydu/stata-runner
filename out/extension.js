@@ -68,7 +68,11 @@ function runStataCode(code) {
             const stataPath = config.get('stataPath');
             const stataWindowTitle = config.get('stataWindowTitle', 'Stata/MP 18.0');
             const stataCommandHotkey = config.get('stataCommandHotkey', '^1');
-            const tempFilePath = config.get('tempFilePath', '__do_tempfile__.do');
+            let tempFilePath = config.get('tempFilePath', '__do_tempfile__.do');
+            // 确保临时文件路径以.do结尾
+            if (!tempFilePath.endsWith('.do')) {
+                tempFilePath = tempFilePath + '.do';
+            }
             const runStataPath = config.get('runStataPath');
             if (!stataPath && process.platform !== 'darwin') {
                 vscode.window.showErrorMessage('Please configure stata-runner.stataPath in settings');

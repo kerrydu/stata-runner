@@ -2,7 +2,7 @@
   "name": "stata-runner",
   "displayName": "Stata Runner",
   "description": "Run Stata code from VS Code using runStata.exe",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "publisher": "kerrydu",
   "icon": "images/icon.png",
   "engines": {
