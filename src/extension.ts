@@ -54,7 +54,32 @@ export function activate(context: vscode.ExtensionContext) {
         await runStataCode(text);
     });
 
-    context.subscriptions.push(runSelection, runToCursor);
+    // 注册从光标到文档结尾运行命令
+    let runFromCursorToEnd = vscode.commands.registerCommand('stata-runner.runFromCursorToEnd', async () => {
+        const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            vscode.window.showErrorMessage('No active editor');
+            return;
+        }
+        
+        // 检查文件扩展名是否为.do或.mata
+        const fileName = editor.document.fileName;
+        if (!fileName.endsWith('.ado') && !fileName.endsWith('.do') && !fileName.endsWith('.mata')) {
+            vscode.window.showErrorMessage('This command is only available for .do and .mata files');
+            return;
+        }
+
+        // 获取从光标位置到文档结尾的内容
+        const cursorPosition = editor.selection.active;
+        const start = new vscode.Position(cursorPosition.line, cursorPosition.character);
+        const end = editor.document.lineAt(editor.document.lineCount - 1).range.end;
+        const range = new vscode.Range(start, end);
+        const text = editor.document.getText(range);
+
+        await runStataCode(text);
+    });
+
+    context.subscriptions.push(runSelection, runToCursor, runFromCursorToEnd);
 }
 
 async function runStataCode(code: string) {

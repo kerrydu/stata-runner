@@ -1,7 +1,7 @@
 # Stata Runner Extension Documentation (English)
 
 ## Installation Guide
-1. Download the extension `stata-runner-0.3.4.vsix` from GitHub repository:
+1. Download the extension `stata-runner-0.3.5.vsix` from GitHub repository:
    - Repository URL: https://github.com/kerrydu/stata-runner
 2. Install the extension manually in VS Code
 3. Perform necessary configurations after installation
@@ -30,6 +30,7 @@
 ## Keyboard Shortcuts
 - `Ctrl+Enter` Run selected code/current line
 - `Ctrl+ALT+Enter` Run to cursor position
+- `Ctrl+ALT+\` Run from cursor to end of document
 
 ## Usage Notes
 1. Supports only .do/.ado/.mata file formats
@@ -47,7 +48,7 @@
 # Stata Runner 扩展说明
 
 ## 安装指南
-1. 从GitHub仓库下载插件:`stata-runner-0.3.4.vsix`
+1. 从GitHub仓库下载插件:`stata-runner-0.3.5.vsix`
    - 仓库地址：https://github.com/kerrydu/stata-runner
 2. 在VS Code中手动安装扩展
 3. 安装完成后需进行必要配置
@@ -77,6 +78,7 @@
 ## 快捷键说明
 - `Ctrl+Enter` 运行选中代码/当前行
 - `Ctrl+Alt+Enter` 运行到光标位置
+- `Ctrl+Alt+\` 从光标位置运行到文档末尾
 
 ## 使用注意事项
 1. 仅支持.do/.ado/.mata文件格式

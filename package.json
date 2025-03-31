@@ -2,7 +2,7 @@
   "name": "stata-runner",
   "displayName": "Stata Runner",
   "description": "Run Stata code from VS Code using runStata.exe",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "publisher": "kerrydu",
   "icon": "images/icon.png",
   "engines": {
@@ -36,6 +36,10 @@
       {
         "command": "stata-runner.runToCursor",
         "title": "Stata: Run To Cursor"
+      },
+      {
+        "command": "stata-runner.runFromCursorToEnd",
+        "title": "Stata: Run From Cursor To End"
       }
     ],
     "keybindings": [
@@ -47,6 +51,11 @@
       {
         "command": "stata-runner.runToCursor",
         "key": "ctrl+alt+enter",
+        "when": "editorTextFocus && editorLangId == 'ado' || editorTextFocus && editorLangId == 'mata' || editorTextFocus && editorLangId == 'stata'"
+      },
+      {
+        "command": "stata-runner.runFromCursorToEnd",
+        "key": "ctrl+alt+\\",
         "when": "editorTextFocus && editorLangId == 'ado' || editorTextFocus && editorLangId == 'mata' || editorTextFocus && editorLangId == 'stata'"
       }
     ],
