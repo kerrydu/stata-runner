@@ -25,7 +25,11 @@
 3. **Temporary File Settings**:
    - Default uses `__do_tempfile__.do`
    - Important: This file will be overwritten
- 
+
+4. **Stata Window Title**:
+   - Configure the exact title of your Stata window (e.g. "Stata/MP 18.0")
+   - Must match exactly including version number
+   - **macOS Note**: This setting is not required on macOS
 
 ## Keyboard Shortcuts
 - `Ctrl+Enter` Run selected code/current line
@@ -74,6 +78,11 @@
 3. **临时文件设置**：
    - 默认使用`__do_tempfile__.do`
    - 重要：该文件会被覆盖
+
+4. **Stata窗口标题**：
+   - 配置Stata窗口的完整标题（例如"Stata/MP 18.0"）
+   - 必须与实际窗口标题完全匹配，包括版本号
+   - **macOS Note**: This setting is not required on macOS
 
 ## 快捷键说明
 - `Ctrl+Enter` 运行选中代码/当前行
