@@ -12,7 +12,7 @@
 
 ## Required Configuration
 1. **Stata Executable Path**:
-   - Open Settings (Ctrl+,)
+   - Open Settings 
    - Search for "stata-runner"
    - Enter full Stata path, e.g.: `C:\Program Files\Stata18\StataMP-64.exe`
    - Note: Path should not contain Chinese characters or special symbols
@@ -22,11 +22,11 @@
    ~~- Configure the full path to runStata.exe~~
    ~~- **Note**: This setting is only required for Windows platform~~
 
-3. **Temporary File Settings**:
-   - Default uses `__do_tempfile__.do`
+1. **Temporary File Settings**:
+   - Default uses `__do_tempfile__.do` (suggest adding path to ensure file is writable)
    - Important: This file will be overwritten
 
-4. **Stata Window Title**:
+2. **Stata Window Title**:
    - Configure the exact title of your Stata window (e.g. "Stata/MP 18.0")
    - Must match exactly including version number
    - **macOS Note**: This setting is not required on macOS
@@ -65,7 +65,7 @@
 
 # 必要配置
 1. **Stata可执行路径**：
-   - 打开设置 (Ctrl+,) 
+   - 打开设置  
    - 搜索 "stata-runner"
    - 填写完整Stata路径，例如：`C:\Program Files\Stata18\StataMP-64.exe`
    - 注意：路径不要包含中文或特殊字符
@@ -75,11 +75,11 @@
    ~~- 配置runStata.exe的完整路径~~
    ~~- **注意**：此设置仅适用于Windows平台~~
 
-3. **临时文件设置**：
+1. **临时文件设置**：
    - 默认使用`__do_tempfile__.do` (建议在__do_tempfile__.do前面添加路径，确保该路径文件可写权限)
    - 重要：该文件会被覆盖
 
-4. **Stata窗口标题**：
+2. **Stata窗口标题**：
    - 配置Stata窗口的完整标题（例如"Stata/MP 18.0"）
    - 必须与实际窗口标题完全匹配，包括版本号
    - **macOS Note**: This setting is not required on macOS
