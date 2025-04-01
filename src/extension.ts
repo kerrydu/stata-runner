@@ -26,7 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
             text = line.text;
         }
 
-        await runStataCode(text);
+        await runStataCode(text, context);
     });
 
     // 注册运行到光标位置命令
@@ -51,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
         const range = new vscode.Range(start, end);
         const text = editor.document.getText(range);
 
-        await runStataCode(text);
+        await runStataCode(text, context);
     });
 
     // 注册从光标到文档结尾运行命令
@@ -76,13 +76,13 @@ export function activate(context: vscode.ExtensionContext) {
         const range = new vscode.Range(start, end);
         const text = editor.document.getText(range);
 
-        await runStataCode(text);
+        await runStataCode(text, context);
     });
 
     context.subscriptions.push(runSelection, runToCursor, runFromCursorToEnd);
 }
 
-async function runStataCode(code: string) {
+async function runStataCode(code: string, context: vscode.ExtensionContext) {
     try {
         // 获取配置
         const config = vscode.workspace.getConfiguration('stata-runner');
@@ -94,14 +94,11 @@ async function runStataCode(code: string) {
         if (!tempFilePath.endsWith('.do')) {
             tempFilePath = tempFilePath + '.do';
         }
-        const runStataPath = config.get<string>('runStataPath');
+        // 获取扩展目录中的runStata.exe路径
+const runStataPath = path.join(context.extensionPath, 'runStata.exe');
 
         if (!stataPath && process.platform !== 'darwin') {
             vscode.window.showErrorMessage('Please configure stata-runner.stataPath in settings');
-            return;
-        }
-        if (!runStataPath && process.platform === 'win32') {
-            vscode.window.showErrorMessage('Please configure stata-runner.runStataPath in settings for Windows platform');
             return;
         }
 
@@ -121,7 +118,7 @@ async function runStataCode(code: string) {
         // 根据平台执行不同的命令
         let command;
         if (process.platform === 'win32') {
-            // Windows平台使用runStata.exe
+            // Windows平台使用扩展目录中的runStata.exe
             command = `"${runStataPath}" "${stataPath}" "${stataWindowTitle}" "${stataCommandHotkey}" "${tempFileFullPath}"`;
         } else if (process.platform === 'darwin') {
             // macOS平台直接使用AppleScript

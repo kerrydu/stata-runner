@@ -1,14 +1,14 @@
 # Stata Runner Extension Documentation (English)
 
 ## Installation Guide
-1. Download the extension `stata-runner-0.3.5.vsix` from GitHub repository:
+1. Download the extension `stata-runner-0.3.6.vsix` from GitHub repository:
    - Repository URL: https://github.com/kerrydu/stata-runner
 2. Install the extension manually in VS Code
 3. Perform necessary configurations after installation
 
-## Download runStata.exe
-1. Download from GitHub repository:
-   - Repository URL: https://github.com/kerrydu/stata-runner
+## ~~Download runStata.exe~~
+~~1. Download from GitHub repository:~~
+   ~~- Repository URL: https://github.com/kerrydu/stata-runner~~
 
 ## Required Configuration
 1. **Stata Executable Path**:
@@ -18,9 +18,9 @@
    - Note: Path should not contain Chinese characters or special symbols
    - **macOS Note**: This setting is not required on macOS
 
-2. **runStata.exe Path (Windows only)**:
-   - Configure the full path to runStata.exe
-   - **Note**: This setting is only required for Windows platform
+~~2. **runStata.exe Path (Windows only)**:~~
+   ~~- Configure the full path to runStata.exe~~
+   ~~- **Note**: This setting is only required for Windows platform~~
 
 3. **Temporary File Settings**:
    - Default uses `__do_tempfile__.do`
@@ -48,16 +48,16 @@
 # Stata Runner 扩展说明
 
 ## 安装指南
-1. 从GitHub仓库下载插件:`stata-runner-0.3.5.vsix`
+1. 从GitHub仓库下载插件:`stata-runner-0.3.6.vsix`
    - 仓库地址：https://github.com/kerrydu/stata-runner
 2. 在VS Code中手动安装扩展
 3. 安装完成后需进行必要配置
 
 ## 下载安装
 
-## 下载runStata.exe
-1. 从GitHub仓库下载：
-   - 仓库地址：https://github.com/kerrydu/stata-runner
+## ~~下载runStata.exe~~
+~~1. 从GitHub仓库下载：~~
+   ~~- 仓库地址：https://github.com/kerrydu/stata-runner~~
 
 # 必要配置
 1. **Stata可执行路径**：
@@ -67,9 +67,9 @@
    - 注意：路径不要包含中文或特殊字符
    - **macOS说明**：macOS系统完全不需要配置此路径，插件会自动识别Stata应用
 
-2. **runStata.exe路径 (仅Windows)**：
-   - 配置runStata.exe的完整路径
-   - **注意**：此设置仅适用于Windows平台
+~~2. **runStata.exe路径 (仅Windows)**：~~
+   ~~- 配置runStata.exe的完整路径~~
+   ~~- **注意**：此设置仅适用于Windows平台~~
 
 3. **临时文件设置**：
    - 默认使用`__do_tempfile__.do`

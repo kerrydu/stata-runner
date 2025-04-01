@@ -2,7 +2,7 @@
   "name": "stata-runner",
   "displayName": "Stata Runner",
   "description": "Run Stata code from VS Code using runStata.exe",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "publisher": "kerrydu",
   "icon": "images/icon.png",
   "engines": {
@@ -81,11 +81,8 @@
           "type": "string",
           "description": "Temporary do file save path (relative to workspace). Default: __do_tempfile__.do. WARNING: Existing files with same name will be overwritten. Recommended to keep default.",
           "default": "__do_tempfile__.do"
-        },
-        "stata-runner.runStataPath": {
-          "type": "string",
-          "description": "Full path to runStata.exe (must be in same directory as package.json). Example: C:\\Users\\kerry\\Downloads\\runStata\\runStata.exe [Windows only]"
         }
+
 
       }
     }

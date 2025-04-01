@@ -34,7 +34,7 @@ function activate(context) {
             const line = editor.document.lineAt(editor.selection.active.line);
             text = line.text;
         }
-        yield runStataCode(text);
+        yield runStataCode(text, context);
     }));
     // 注册运行到光标位置命令
     let runToCursor = vscode.commands.registerCommand('stata-runner.runToCursor', () => __awaiter(this, void 0, void 0, function* () {
@@ -55,7 +55,7 @@ function activate(context) {
         const end = new vscode.Position(cursorPosition.line, cursorPosition.character);
         const range = new vscode.Range(start, end);
         const text = editor.document.getText(range);
-        yield runStataCode(text);
+        yield runStataCode(text, context);
     }));
     // 注册从光标到文档结尾运行命令
     let runFromCursorToEnd = vscode.commands.registerCommand('stata-runner.runFromCursorToEnd', () => __awaiter(this, void 0, void 0, function* () {
@@ -76,12 +76,12 @@ function activate(context) {
         const end = editor.document.lineAt(editor.document.lineCount - 1).range.end;
         const range = new vscode.Range(start, end);
         const text = editor.document.getText(range);
-        yield runStataCode(text);
+        yield runStataCode(text, context);
     }));
     context.subscriptions.push(runSelection, runToCursor, runFromCursorToEnd);
 }
 exports.activate = activate;
-function runStataCode(code) {
+function runStataCode(code, context) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             // 获取配置
@@ -94,13 +94,10 @@ function runStataCode(code) {
             if (!tempFilePath.endsWith('.do')) {
                 tempFilePath = tempFilePath + '.do';
             }
-            const runStataPath = config.get('runStataPath');
+            // 获取扩展目录中的runStata.exe路径
+            const runStataPath = path.join(context.extensionPath, 'runStata.exe');
             if (!stataPath && process.platform !== 'darwin') {
                 vscode.window.showErrorMessage('Please configure stata-runner.stataPath in settings');
-                return;
-            }
-            if (!runStataPath && process.platform === 'win32') {
-                vscode.window.showErrorMessage('Please configure stata-runner.runStataPath in settings for Windows platform');
                 return;
             }
             // 创建临时文件目录（如果不存在）
@@ -116,7 +113,7 @@ function runStataCode(code) {
             // 根据平台执行不同的命令
             let command;
             if (process.platform === 'win32') {
-                // Windows平台使用runStata.exe
+                // Windows平台使用扩展目录中的runStata.exe
                 command = `"${runStataPath}" "${stataPath}" "${stataWindowTitle}" "${stataCommandHotkey}" "${tempFileFullPath}"`;
             }
             else if (process.platform === 'darwin') {
