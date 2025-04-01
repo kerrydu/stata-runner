@@ -94,6 +94,10 @@ function runStataCode(code, context) {
             if (!tempFilePath.endsWith('.do')) {
                 tempFilePath = tempFilePath + '.do';
             }
+            // 如果使用默认路径，则获取当前工作目录的完整路径
+            if (tempFilePath === '__do_tempfile__.do') {
+                tempFilePath = path.join(vscode.workspace.rootPath || context.extensionPath, tempFilePath);
+            }
             // 获取扩展目录中的runStata.exe路径
             const runStataPath = path.join(context.extensionPath, 'runStata.exe');
             if (!stataPath && process.platform !== 'darwin') {
