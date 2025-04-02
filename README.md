@@ -2,7 +2,7 @@
 
 ## Installation Guide
 1. Download the extension `stata-runner-0.3.7.vsix` from GitHub repository:
-   - URL: https://github.com/kerrydu/stata-runner/blob/main/stata-runner-0.3.6.vsix
+   - URL: https://github.com/kerrydu/stata-runner/blob/main/stata-runner-0.3.7.vsix
 2. Install the extension manually in VS Code
 3. Perform necessary configurations after installation
 
@@ -53,7 +53,7 @@
 
 ## 安装指南
 1. 从GitHub仓库下载插件:`stata-runner-0.3.7.vsix`
-   - 仓库地址：https://github.com/kerrydu/stata-runner/blob/main/stata-runner-0.3.6.vsix
+   - 仓库地址：https://github.com/kerrydu/stata-runner/blob/main/stata-runner-0.3.7.vsix
 2. 在VS Code中手动安装扩展
 3. 安装完成后需进行必要配置
 
