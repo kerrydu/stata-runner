@@ -47,17 +47,17 @@
       {
         "command": "stata-runner.runSelection",
         "key": "ctrl+enter",
-        "when": "editorTextFocus && editorLangId == 'ado' || editorTextFocus && editorLangId == 'mata' || editorTextFocus && editorLangId == 'stata'"
+        "when": "editorTextFocus && (editorLangId == 'ado' || editorLangId == 'mata' || editorLangId == 'stata' || editorLangId == 'do')"
       },
       {
         "command": "stata-runner.runToCursor",
         "key": "ctrl+alt+enter",
-        "when": "editorTextFocus && editorLangId == 'ado' || editorTextFocus && editorLangId == 'mata' || editorTextFocus && editorLangId == 'stata'"
+        "when": "editorTextFocus && (editorLangId == 'ado' || editorLangId == 'mata' || editorLangId == 'stata' || editorLangId == 'do')"
       },
       {
         "command": "stata-runner.runFromCursorToEnd",
         "key": "ctrl+alt+\\",
-        "when": "editorTextFocus && editorLangId == 'ado' || editorTextFocus && editorLangId == 'mata' || editorTextFocus && editorLangId == 'stata'"
+        "when": "editorTextFocus && (editorLangId == 'ado' || editorLangId == 'mata' || editorLangId == 'stata' || editorLangId == 'do')"
       }
     ],
     "configuration": {
